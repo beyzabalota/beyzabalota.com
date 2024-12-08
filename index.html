@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beyza Balota</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+</head>
+<body>
+  
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+  
+  <!-- Spline Viewer -->
+  <div class="spline-container">
+    <spline-viewer id="splineViewer" url="https://prod.spline.design/jxwofpo7CpNZfCUX/scene.splinecode"></spline-viewer>
+  </div>
+
+  <!-- Links Section -->
+  <div class="content">
+    <div class="links">
+      <a href="https://www.linkedin.com/in/beyza-balota" target="_blank" class="icon">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/beyzabalota" target="_blank" class="icon">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="mailto:beyzabalota@outlook.com" class="icon">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Beyza Balota. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript to Handle Preloader -->
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById('preloader');
+      const splineContainer = document.querySelector('.spline-container');
+
+      // Minimum preloader gösterim süresi (ms)
+      const minimumPreloaderTime = 1000; // 1 saniye
+      const startTime = Date.now();
+
+      // Preloader'ı kaldırmak için bir fonksiyon
+      function removePreloader() {
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 0.5s ease';
+
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          splineContainer.style.opacity = '1'; // Spline container'ı görünür yap
+        }, 500); // Geçiş süresi ile aynı olmalı
+      }
+
+      // Preloader süresi dolunca kaldır
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = minimumPreloaderTime - elapsedTime;
+      setTimeout(removePreloader, Math.max(remainingTime, 0));
+    });
+  </script>
+
+</body>
+</html>

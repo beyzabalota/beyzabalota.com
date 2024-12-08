@@ -1,0 +1,118 @@
+/* Genel Stiller */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Palatino', serif;
+  color: #f0f0f0;
+  background-color: #000; /* Genel arka plan rengi siyah */
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Preloader arka plan rengi siyah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Tüm içeriklerin üzerinde */
+  transition: opacity 0.5s ease;
+}
+
+/* Spinner Animasyonu */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f0f0f0; /* Açık gri kenar */
+  border-top: 5px solid #AF7AC5; /* Vurgu rengi */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Spline Viewer */
+.spline-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Spline arka plan rengiyle uyumlu siyah */
+  opacity: 0; /* Başlangıçta görünmez */
+  transition: opacity 0.5s ease; /* Yumuşak geçiş için */
+  z-index: 0; /* Arka plan katmanı */
+}
+
+.spline-container spline-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Links Styling */
+.content {
+  position: absolute;
+  bottom: 37%;
+  left: 25%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1; /* Spline'ın üzerinde */
+  opacity: 0; /* Başlangıçta görünmez */
+  animation: fadeInUp 1s ease forwards; /* Görünür yapacak animasyon */
+  animation-delay: 2s; /* Gecikmeli */
+}
+
+.links a {
+  margin: 0 25px;
+  color: #979A9A;
+  font-size: 2.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #AF7AC5;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 1; /* Spline'ın üzerinde */
+  opacity: 0; /* Başlangıçta görünmez */
+  animation: fadeInUp 1s ease forwards; /* Görünür yapacak animasyon */
+  animation-delay: 2.5s; /* Footer için ekstra gecikme */
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: #cccccc;
+}
+
+/* Animasyon */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
